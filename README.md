@@ -1,12 +1,12 @@
 # ExecAnimationsJumpStart
 JumpStart Website 
 
-** Pre-requisite **
+Pre-requisite
 ```
 npm install
 ```
 
-** Post-Install **
+Post-Install
 ```
 npm run gulp 
 ```
