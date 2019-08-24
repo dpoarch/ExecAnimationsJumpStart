@@ -5,17 +5,20 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "serve": "lite-server"
+        "gulp": "./node_modules/.bin/gulp"
     },
     "keywords": [
         "jumpstart-module"
     ],
+    "homepage": "https://github.com/dpoarch/ExecAnimationsJumpStart",
     "author": "David Poarch",
     "license": "ISC",
     "devDependencies": {
-        "npm-run-all": "^4.1.5"
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-uglifycss": "^1.1.0"
     },
-    "dependencies": {
-        "lite-server": "^2.5.4"
-    }
+    "dependencies": {}
 }
