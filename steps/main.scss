@@ -1,0 +1,28 @@
+@import '../scss/keyframes.scss';
+
+
+.animate-steps-fade-down {
+    @include animation(fadeInFromTop cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.animate-steps-fade-left {
+    @include animation(fadeInFromLeft cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.animate-steps-fade-right {
+    @include animation(fadeInFromRight cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.animate-steps-text-focus {
+    @include animation(textFocusIn cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.animate-steps-scale {
+    @include animation(fadeInScale cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
+}
+.steps-reveal-div{
+    width:0px;
+    @include animation(slidein cubic-bezier(0.550, 0.085, 0.680, 0.530) both);    
+}
+.steps-reveal-div p{
+    margin-left:-30%;
+    @include animation(reveal cubic-bezier(0.550, 0.085, 0.680, 0.530) both);    
+}
+
+@include animate-delays(animate-steps, 1, 7, 1.5);
