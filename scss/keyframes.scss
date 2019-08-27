@@ -292,3 +292,12 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
         transform: scale3d(1, 1, 1);
     }
 }
+
+.title-bounce {
+    @include animation('fadeInScale 3s');
+}
+
+.founders-lead,
+.testimonies-sub {
+    @include animation('fadeInScale 3.5s');
+}

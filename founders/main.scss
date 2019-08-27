@@ -4,18 +4,9 @@
 
 /** --------------------- **/
 
-.title-bounce {
-    @include animation('fadeInScale 3s');
-}
-
 .title-bounce p {
     padding: 0 15px;
     display: contents;
-}
-
-.founders-lead,
-.testimonies-sub {
-    @include animation('fadeInScale 3.5s');
 }
 
 .animate-founder-card-slideDown {

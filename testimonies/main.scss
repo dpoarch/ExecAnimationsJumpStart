@@ -1,0 +1,32 @@
+/***** Testimonies */
+
+@import '../scss/keyframes';
+
+/** --------------------- **/
+
+@media screen and (-ms-high-contrast:active),
+screen and (-ms-high-contrast: none) {
+    body .flex-wrap>div {
+        width: auto !important;
+    }
+}
+
+.rotate-skew {
+    @include animation('rotateSkewLeft 2s')
+}
+
+.rotate-skew-left-outer {
+    @include animation('rotateSkewLeftPos 2s');
+}
+
+.rotate-skew-right {
+    @include animation('rotateSkewRight 2s');
+}
+
+.rotate-skew-right-outer {
+    @include animation('rotateSkewRightPos 2s');
+}
+
+.rotate-scale-last {
+    @include animation('rotateScaleRubber 3s');
+}
