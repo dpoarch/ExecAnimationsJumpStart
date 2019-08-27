@@ -1,0 +1,22 @@
+/***** Footer */
+
+@import '../scss/keyframes';
+
+/** --------------------- **/
+
+.title-fade-in-down {
+    @include animation('fadeInFromTop 2s');
+}
+
+.fade-in-from-bottom {
+    @include animation('fadeInFromBottom 2s');
+}
+
+.newsletter-card {
+    @include animation('fadeInFromRight 1s linear');
+}
+
+@include animate-intervals(1, 6, '.demo-list li', 'fadeInFromLeft 1.5s forwards', (1s / 8));
+@include animate-intervals(1, 6, '.pages-list li', 'fadeInFromLeft 1.5s forwards', (1s / 6));
+@include animate-intervals(1, 6, '.fade-in-right li', 'fadeInFromBottom 1.5s forwards', (1s / 10));
+@include animate-intervals(1, 5, '.social-list  li', 'fadeInScale 2s forwards', (1s / 5));
