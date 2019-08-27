@@ -1,0 +1,43 @@
+/** Global */
+
+$animation-prefix: -webkit- -moz- -o- -ms-;
+
+/** mixin functions */
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin prefix($property, $value, $prefixes:$animation-prefix) {
+    @each $prefix in $prefixes {
+        #{$prefix}#{$property}: $value;
+    }
+    #{$property}: $value;
+}
+
+@mixin animation($str) {
+    @include prefix(animation, #{$str});
+    animation-iteration-count: 1;
+}
+
+@mixin animation-delay($delay) {
+    @include prefix(animation-delay, #{$delay});
+}
+
+@mixin transition($str) {
+    @include prefix(transition, #{$str});
+}
