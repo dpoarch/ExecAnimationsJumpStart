@@ -54,10 +54,10 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
     }
 }
 
-@mixin animate-delays($name, $from, $to, $interval, $offset:0) {
+@mixin animate-delays($name, $from, $to, $interval, $delay-seconds:$interval, $offset:0) {
     @for $i from $from to $to {
         .#{$name}-#{$i} {
-            $delay: $interval*($i - $offset);
+            $delay: $delay-seconds*($i - $offset);
             @include prefix(animation-duration, #{$interval}s !important);
             @include prefix(animation-delay, #{$delay}s !important);
             @include prefix(animation-fill, both);

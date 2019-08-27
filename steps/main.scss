@@ -16,13 +16,5 @@
 .animate-steps-scale {
     @include animation(fadeInScale cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
 }
-.steps-reveal-div{
-    width:0px;
-    @include animation(slidein cubic-bezier(0.550, 0.085, 0.680, 0.530) both);    
-}
-.steps-reveal-div p{
-    margin-left:-30%;
-    @include animation(reveal cubic-bezier(0.550, 0.085, 0.680, 0.530) both);    
-}
 
 @include animate-delays(animate-steps, 1, 7, 1.5);
