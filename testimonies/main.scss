@@ -12,21 +12,21 @@ screen and (-ms-high-contrast: none) {
 }
 
 .rotate-skew {
-    @include animation('rotateSkewLeft 2s')
+    @include animation('rotateSkewLeft 5s')
 }
 
 .rotate-skew-left-outer {
-    @include animation('rotateSkewLeftPos 2s');
+    @include animation('rotateSkewLeftPos 5s');
 }
 
 .rotate-skew-right {
-    @include animation('rotateSkewRight 2s');
+    @include animation('rotateSkewRight 5s');
 }
 
 .rotate-skew-right-outer {
-    @include animation('rotateSkewRightPos 2s');
+    @include animation('rotateSkewRightPos 5s');
 }
 
 .rotate-scale-last {
-    @include animation('rotateScaleRubber 3s');
+    @include animation('rotateScaleRubber 5s');
 }

@@ -19,39 +19,40 @@
         <div class="container">
             <div class="row section-title justify-content-center text-center">
                 <div class="col-md-9 col-lg-8 col-xl-7">
-                    <h3 class="display-4 title-bounce animate-delay-testimonies-1 dy_text">Customers are lovin’ it</h3>
-                    <div class="lead testimonies-sub animate-delay-testimonies-2 dy_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</div>
+                    <h3 class="display-4 dy_text" id="testimony_title">Customers are lovin’ it</h3>
+                    <div class="lead 2 dy_text" id="testimony_subt">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col d-flex flex-wrap justify-content-center">
-                    <div class="m-2 rotate-skew animate-delay-testimonies-1 dy_tone1">
+                    <div class="m-2 dy_tone1" id="testimony_box_1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-3.jpg" alt="Brandon Pliskin avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0">&ldquo;Porting in to
                                 <mark>Jumpstart is a breeze.</mark>&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 rotate-skew-right animate-delay-testimonies-1 dy_tone1">
+                    <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/female-4.jpg" alt="Ashley Mance avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0">&ldquo;Jumpstart is a dream come true.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 rotate-skew-left-outer animate-delay-testimonies-1 dy_tone1">
+                    <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-4.jpg" alt="Mike Vandels avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0">&ldquo;This company always turns out quality.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 rotate-skew-right-outer animate-delay-testimonies-1 dy_tone1">
+                    <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-5.jpg" alt="Deiter Bohn avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0">&ldquo;Jumpstart is, well...
                                 <mark>It's pretty great.</mark>&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 rotate-scale-last animate-delay-testimonies-1 dy_tone1">
+                    <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/female-5.jpg" alt="Shelley Canning avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0">&ldquo;Put your money into this company now.&rdquo;</div>
@@ -111,6 +112,19 @@
     <script type="text/javascript">
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
+
+            //Event
+            window.addEventListener('message', function(event) {
+                if (typeof event.data == 'object' && event.data.visible == true) {
+                    $('#testimony_title').addClass('title-bounce');
+                    $('#testimony_subt').addClass('testimonies-sub');
+                    $(".m-2:eq(0)").addClass('rotate-skew');
+                    $(".m-2:eq(1)").addClass('rotate-skew-right');
+                    $(".m-2:eq(2)").addClass('rotate-skew-left-outer');
+                    $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
+                    $(".m-2:eq(4)").addClass('rotate-scale-last');
+                }
+            }, false);
         });
     </script>
 

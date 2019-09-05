@@ -10,9 +10,9 @@
 }
 
 .animate-founder-card-slideDown {
-    @include animation('slideDownCard 6s');
+    @include animation('slideDownCard 8s');
 }
 
 .animate-founder-card-slideUp {
-    @include animation('slideUpCard 6s');
+    @include animation('slideUpCard 8s');
 }

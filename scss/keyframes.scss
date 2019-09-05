@@ -256,12 +256,11 @@ $animation-prefix: -webkit- -moz- -o- -ms-;
     }
 }
 
-
 .title-bounce {
-    @include animation('fadeInScale 3s');
+    @include animation('fadeInScale 6s');
 }
 
 .founders-lead,
 .testimonies-sub {
-    @include animation('fadeInScale 3.5s');
+    @include animation('fadeInScale 6s');
 }
