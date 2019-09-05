@@ -218,12 +218,12 @@
         </nav>
     </div>
 
-    <iframe src="./intro/main.html" id="iframe1"></iframe>
-    <iframe src="./steps/main.html" id="iframe2"></iframe>
+    <iframe src="./intro/main.html" id="iframe1" name="iframe1"></iframe>
+    <iframe src="./steps/main.html" id="iframe2" name="iframe2"></iframe>
     <iframe src="./founders/main.html" id="iframe3" name="iframe3"></iframe>
     <iframe src="./testimonies/main.html" id="iframe4" name="iframe4"></iframe>
-    <iframe src="./purchase/main.html" id="iframe5"></iframe>
-    <iframe src="./footer/main.html" id="iframe6"></iframe>
+    <iframe src="./purchase/main.html" id="iframe5" name="iframe5"></iframe>
+    <iframe src="./footer/main.html" id="iframe6" name="iframe6"></iframe>
 
     <a href="#top" class="btn btn-primary rounded-circle btn-back-to-top" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
         <img src="assets/icons/interface/icon-arrow-up.svg" alt="Icon" class="icon bg-white" data-inject-svg>
@@ -244,18 +244,21 @@
             $('iframe').iFrameResize();
         });
 
-        $(window).on('scroll', function() {
-            if (isOnScreen($('#iframe3'))) {
-                window.frames['iframe3'].postMessage({
+        var messageFrame = function(id){
+            if (isOnScreen($('#'+id))) {
+                const frame = window.frames[id].postMessage({
                     visible: true
                 });
             }
+        }
 
-            if (isOnScreen($('#iframe4'))) {
-                window.frames['iframe4'].postMessage({
-                    visible: true
-                });
-            }
+        $(window).on('scroll', function() {
+            messageFrame("iframe1");
+            messageFrame("iframe2");
+            messageFrame("iframe3");
+            messageFrame("iframe4");
+            messageFrame("iframe5");
+            messageFrame("iframe6");
         });
     </script>
 </body>
