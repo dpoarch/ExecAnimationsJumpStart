@@ -220,7 +220,7 @@
 
     <iframe src="./intro/main.html" id="iframe-1"></iframe>
     <iframe src="./steps/main.html" id="iframe-2"></iframe>
-    <iframe src="./founders/main.html" id="iframe-3"></iframe>
+    <iframe src="./founders/main.html" id="iframe3" name="iframe3"></iframe>
     <iframe src="./testimonies/main.html" id="iframe-4"></iframe>
     <iframe src="./purchase/main.html" id="iframe-5"></iframe>
     <iframe src="./footer/main.html" id="iframe-6"></iframe>
@@ -231,6 +231,7 @@
     <!-- Required vendor scripts (Do not remove) -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="js/iframeResizer.min.js" type="text/javascript"></script>
+    <script src="js/viewportcheck.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         window.addEventListener("load", function() {
@@ -241,6 +242,14 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('iframe').iFrameResize();
+        });
+
+        $(window).on('scroll', function() {
+            if (isOnScreen($('#iframe3'))) {
+                const frame3 = window.frames['iframe3'].postMessage({
+                    visible: true
+                });
+            }
         });
     </script>
 </body>

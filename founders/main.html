@@ -15,17 +15,17 @@
 </head>
 
 <body>
-    <section class="dy_background">
+    <section class="dy_background" id="founders-section">
         <div class="container">
             <div class="row section-title justify-content-center text-center">
-                <div class="col-md-9 col-lg-8 col-xl-7">
-                    <h3 class="display-4 title-bounce dy_text">They <mark data-aos="highlight-text" data-aos-delay="1500"> Jumpstarted </mark> it
+                <div class="col-md-9 col-lg-8 col-xl-7" data-aos="fade-in">
+                    <h3 class="display-4 dy_text" id="founders_title">They <mark data-aos="highlight-text" data-aos-delay="1500"> Jumpstarted </mark> it
                     </h3>
-                    <div class="lead founders-lead dy_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</div>
+                    <div class="lead dy_text" id="founders_subt">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0 animate-founder-card-slideDown">
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0" id="founders-card-1">
                     <div class="card h-100 hover-box-shadow">
                         <div class="d-block bg-gradient rounded-top">
                             <img class="card-img-top hover-fade-out" src="thumb-2.jpg" alt="Image accompanying Circle testimonial">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0 animate-founder-card-slideUp">
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0" id="founders-card-2">
                     <div class="card h-100 hover-box-shadow">
                         <div class="d-block bg-gradient rounded-top">
                             <img class="card-img-top hover-fade-out" src="thumb-9.jpg" alt="Image accompanying Kanba testimonial">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0 animate-founder-card-slideDown">
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0" id="founders-card-3">
                     <div class="card h-100 hover-box-shadow">
                         <div class="d-block bg-gradient rounded-top">
                             <img class="card-img-top hover-fade-out" src="thumb-5.jpg" alt="Image accompanying Treva testimonial">
@@ -129,9 +129,19 @@
     <script type="text/javascript">
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
+
+            //Event
+            window.addEventListener('message', function(event) {
+                if (typeof event.data == 'object' && event.data.visible == true) {
+                    $('#founders_title').addClass('title-bounce');
+                    $('#founders_subt').addClass('founders-lead');
+                    $('#founders-card-1, #founders-card-3').addClass('animate-founder-card-slideDown');
+                    $('#founders-card-2').addClass('animate-founder-card-slideUp');
+                }
+            }, false);
         });
     </script>
 
 </body>
 
-</html>
+</html
