@@ -130,15 +130,38 @@
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
 
-            //Event
-            window.addEventListener('message', function(event) {
-                if (typeof event.data == 'object' && event.data.visible == true) {
-                    $('#founders_title').addClass('title-bounce');
-                    $('#founders_subt').addClass('founders-lead');
-                    $('#founders-card-1, #founders-card-3').addClass('animate-founder-card-slideDown');
-                    $('#founders-card-2').addClass('animate-founder-card-slideUp');
-                }
-            }, false);
+            // old aos
+            // window.addEventListener('message', function(event) {
+            //     if (typeof event.data == 'object' && event.data.visible == true) {
+            //         $('#founders_title').addClass('title-bounce');
+            //         $('#founders_subt').addClass('founders-lead');
+            //         $('#founders-card-1, #founders-card-3').addClass('animate-founder-card-slideDown');
+            //         $('#founders-card-2').addClass('animate-founder-card-slideUp');
+            //     }
+            // }, false);
+
+            // new suggested aos
+            window.iFrameResizer = {
+                targetOrigin: '*',
+                onMessage: function(message) 
+                {
+                    var messageData = JSON.parse(message);                           
+                    //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
+                    //console.log(message);
+                    if(messageData["verticalDisplayRatio"]>0.5){
+                        $('#founders_title').addClass('title-bounce');
+                        $('#founders_subt').addClass('founders-lead');
+                        $('#founders-card-1, #founders-card-3').addClass('animate-founder-card-slideDown');
+                        $('#founders-card-2').addClass('animate-founder-card-slideUp');     
+                    }
+                    // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
+                    //     $('#founders_title').removeClass('title-bounce');
+                    //     $('#founders_subt').removeClass('founders-lead');
+                    //     $('#founders-card-1, #founders-card-3').removeClass('animate-founder-card-slideDown');
+                    //     $('#founders-card-2').removeClass('animate-founder-card-slideUp');  
+                    // }
+                },        
+            }            
         });
     </script>
 

@@ -31,6 +31,12 @@ function animateAll(){
   fsRight3.play();
   fsRight4.play();
 }
+function resetAll(){
+  fsRight1.restart();
+  fsRight2.restart();
+  fsRight3.restart();
+  fsRight4.restart();
+}
 
 
 
@@ -53,31 +59,79 @@ window.addEventListener("load", function() {
     $(listClassIndices('#'+name, i, n)).addClass(name);
   }
 
-  //Event
-  window.addEventListener('message', function(event) {
-      if (typeof event.data == 'object' && event.data.visible == true) {
-        //bindIdstoAnimateClass('animate-steps-scale', 1, 6);
-        //bindIdstoAnimateClass('animate-steps-fade-down', 1, 3);
-        //bindIdstoAnimateClass('animate-steps-fade-left', 1, 4);
-        bindIdstoAnimateClass('animate-steps-fade-right', 1, 3);
-        //bindIdstoAnimateClass('animate-steps-text-focus', 1, 6);
-        $('#animate-steps-scale-1').addClass('animate-steps-scale');
-        $('#animate-steps-scale-2').addClass('animate-steps-scale');
-        $('#animate-steps-scale-3').addClass('animate-steps-scale');
-        $('#animate-steps-scale-4').addClass('animate-steps-scale');
-        $('#animate-steps-scale-5').addClass('animate-steps-scale');
-        $('#animate-steps-text-focus-1').addClass('animate-steps-text-focus');
-        $('#animate-steps-text-focus-2').addClass('animate-steps-text-focus');
-        $('#animate-steps-text-focus-3').addClass('animate-steps-text-focus');
-        $('#animate-steps-text-focus-4').addClass('animate-steps-text-focus');
-        $('#animate-steps-text-focus-5').addClass('animate-steps-text-focus');
-        $('#animate-steps-fade-down-1').addClass('animate-steps-fade-down');
-        $('#animate-steps-fade-down-2').addClass('animate-steps-fade-down');
-        $('#animate-steps-fade-left-1').addClass('animate-steps-fade-left');
-        $('#animate-steps-fade-left-2').addClass('animate-steps-fade-left');
-        $('#animate-steps-fade-left-3').addClass('animate-steps-fade-left');
+  // old aos
+  // window.addEventListener('message', function(event) {
+  //     if (typeof event.data == 'object' && event.data.visible == true) {
+  //       bindIdstoAnimateClass('animate-steps-fade-right', 1, 3);
+  //       $('#animate-steps-scale-1').addClass('animate-steps-scale');
+  //       $('#animate-steps-scale-2').addClass('animate-steps-scale');
+  //       $('#animate-steps-scale-3').addClass('animate-steps-scale');
+  //       $('#animate-steps-scale-4').addClass('animate-steps-scale');
+  //       $('#animate-steps-scale-5').addClass('animate-steps-scale');
+  //       $('#animate-steps-text-focus-1').addClass('animate-steps-text-focus');
+  //       $('#animate-steps-text-focus-2').addClass('animate-steps-text-focus');
+  //       $('#animate-steps-text-focus-3').addClass('animate-steps-text-focus');
+  //       $('#animate-steps-text-focus-4').addClass('animate-steps-text-focus');
+  //       $('#animate-steps-text-focus-5').addClass('animate-steps-text-focus');
+  //       $('#animate-steps-fade-down-1').addClass('animate-steps-fade-down');
+  //       $('#animate-steps-fade-down-2').addClass('animate-steps-fade-down');
+  //       $('#animate-steps-fade-left-1').addClass('animate-steps-fade-left');
+  //       $('#animate-steps-fade-left-2').addClass('animate-steps-fade-left');
+  //       $('#animate-steps-fade-left-3').addClass('animate-steps-fade-left');
+  //       animateAll();
+  //     }
+  // }, false);
 
-        animateAll();
-      }
-  }, false);
+    // new suggested aos
+    window.iFrameResizer = {
+      targetOrigin: '*',
+      onMessage: function(message) 
+      {
+          var messageData = JSON.parse(message);                           
+          //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
+          //console.log(message);
+          if(messageData["verticalDisplayRatio"]>0.5){
+            $('#animate-steps-fade-right-1').addClass('animate-steps-fade-right');
+            $('#animate-steps-fade-right-2').addClass('animate-steps-fade-right');
+            $('#animate-steps-fade-right-3').addClass('animate-steps-fade-right');
+            $('#animate-steps-scale-1').addClass('animate-steps-scale');
+            $('#animate-steps-scale-2').addClass('animate-steps-scale');
+            $('#animate-steps-scale-3').addClass('animate-steps-scale');
+            $('#animate-steps-scale-4').addClass('animate-steps-scale');
+            $('#animate-steps-scale-5').addClass('animate-steps-scale');
+            $('#animate-steps-text-focus-1').addClass('animate-steps-text-focus');
+            $('#animate-steps-text-focus-2').addClass('animate-steps-text-focus');
+            $('#animate-steps-text-focus-3').addClass('animate-steps-text-focus');
+            $('#animate-steps-text-focus-4').addClass('animate-steps-text-focus');
+            $('#animate-steps-text-focus-5').addClass('animate-steps-text-focus');
+            $('#animate-steps-fade-down-1').addClass('animate-steps-fade-down');
+            $('#animate-steps-fade-down-2').addClass('animate-steps-fade-down');
+            $('#animate-steps-fade-left-1').addClass('animate-steps-fade-left');
+            $('#animate-steps-fade-left-2').addClass('animate-steps-fade-left');
+            $('#animate-steps-fade-left-3').addClass('animate-steps-fade-left');
+            animateAll(); 
+          }
+          // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
+          //   $('#animate-steps-fade-right-1').removeClass('animate-steps-fade-right');
+          //   $('#animate-steps-fade-right-2').removeClass('animate-steps-fade-right');
+          //   $('#animate-steps-fade-right-3').removeClass('animate-steps-fade-right');
+          //   $('#animate-steps-scale-1').removeClass('animate-steps-scale');
+          //   $('#animate-steps-scale-2').removeClass('animate-steps-scale');
+          //   $('#animate-steps-scale-3').removeClass('animate-steps-scale');
+          //   $('#animate-steps-scale-4').removeClass('animate-steps-scale');
+          //   $('#animate-steps-scale-5').removeClass('animate-steps-scale');
+          //   $('#animate-steps-text-focus-1').removeClass('animate-steps-text-focus');
+          //   $('#animate-steps-text-focus-2').removeClass('animate-steps-text-focus');
+          //   $('#animate-steps-text-focus-3').removeClass('animate-steps-text-focus');
+          //   $('#animate-steps-text-focus-4').removeClass('animate-steps-text-focus');
+          //   $('#animate-steps-text-focus-5').removeClass('animate-steps-text-focus');
+          //   $('#animate-steps-fade-down-1').removeClass('animate-steps-fade-down');
+          //   $('#animate-steps-fade-down-2').removeClass('animate-steps-fade-down');
+          //   $('#animate-steps-fade-left-1').removeClass('animate-steps-fade-left');
+          //   $('#animate-steps-fade-left-2').removeClass('animate-steps-fade-left');
+          //   $('#animate-steps-fade-left-3').removeClass('animate-steps-fade-left');
+          //   resetAll(); 
+          // }
+      },        
+  } 
 });

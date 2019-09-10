@@ -228,26 +228,64 @@
             }
             return str.substring(0, str.length - 2); 
         }
-          var bindIdtoAnimateClass = function(name){
-            $('#'+name).addClass(name);
+          var bindIdtoAnimateClass = function(name,show){
+            if(show) $('#'+name).addClass(name);
+            else $('#'+name).removeClass(name);
           }        
         
-            var bindIdstoAnimateClass = function(name,i,n){
-                $(listClassIndices('#'+name, i, n)).addClass(name);
+            var bindIdstoAnimateClass = function(name,i,n,show){
+                if(show) $(listClassIndices('#'+name, i, n)).addClass(name);
+                else $(listClassIndices('#'+name, i, n)).removeClass(name);
             }
-          //Event
-          window.addEventListener('message', function(event) {
-              if (typeof event.data == 'object' && event.data.visible == true) {
-                bindIdtoAnimateClass('newsletter-card');
-                bindIdtoAnimateClass('demo-list');
-                bindIdtoAnimateClass('pages-list');
-                bindIdtoAnimateClass('fade-in-right');
-                bindIdtoAnimateClass('social-list');
-                bindIdtoAnimateClass('fade-in-from-bottom');
-                bindIdstoAnimateClass('title-fade-in-down', 1, 4);                    
-              }
-          }, false);
+          //old aos
+        //   window.addEventListener('message', function(event) {
+        //       if (typeof event.data == 'object' && event.data.visible == true) {
+        //         bindIdtoAnimateClass('newsletter-card');
+        //         bindIdtoAnimateClass('demo-list');
+        //         bindIdtoAnimateClass('pages-list');
+        //         bindIdtoAnimateClass('fade-in-right');
+        //         bindIdtoAnimateClass('social-list');
+        //         bindIdtoAnimateClass('fade-in-from-bottom');
+        //         bindIdstoAnimateClass('title-fade-in-down', 1, 4);                    
+        //       }
+        //   }, false);
+
+          
+        // new suggested aos
+        window.iFrameResizer = {
+            targetOrigin: '*',
+            onMessage: function(message) 
+                {
+                    var messageData = JSON.parse(message);                           
+                    //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
+                    //console.log(message);
+                    var showElements=false;
+                    if(messageData["verticalDisplayRatio"]>0.5){
+                        showElements = true;
+                        bindIdtoAnimateClass('newsletter-card', showElements);
+                        bindIdtoAnimateClass('demo-list', showElements);
+                        bindIdtoAnimateClass('pages-list', showElements);
+                        bindIdtoAnimateClass('fade-in-right', showElements);
+                        bindIdtoAnimateClass('social-list', showElements);
+                        bindIdtoAnimateClass('fade-in-from-bottom', showElements);
+                        bindIdstoAnimateClass('title-fade-in-down', 1, 4, showElements);      
+                    }
+                    // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
+                    //     showElements = false;
+                    //     bindIdtoAnimateClass('newsletter-card', showElements);
+                    //     bindIdtoAnimateClass('demo-list', showElements);
+                    //     bindIdtoAnimateClass('pages-list', showElements);
+                    //     bindIdtoAnimateClass('fade-in-right', showElements);
+                    //     bindIdtoAnimateClass('social-list', showElements);
+                    //     bindIdtoAnimateClass('fade-in-from-bottom', showElements);
+                    //     bindIdstoAnimateClass('title-fade-in-down', 1, 4, showElements);   
+
+                    // }
+                },        
+            }
         });
+
+
     </script>
 
 </body>

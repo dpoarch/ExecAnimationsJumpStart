@@ -113,18 +113,46 @@
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
 
-            //Event
-            window.addEventListener('message', function(event) {
-                if (typeof event.data == 'object' && event.data.visible == true) {
-                    $('#testimony_title').addClass('title-bounce');
-                    $('#testimony_subt').addClass('testimonies-sub');
-                    $(".m-2:eq(0)").addClass('rotate-skew');
-                    $(".m-2:eq(1)").addClass('rotate-skew-right');
-                    $(".m-2:eq(2)").addClass('rotate-skew-left-outer');
-                    $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
-                    $(".m-2:eq(4)").addClass('rotate-scale-last');
-                }
-            }, false);
+            // old aos
+            // window.addEventListener('message', function(event) {
+            //     if (typeof event.data == 'object' && event.data.visible == true) {
+            //         $('#testimony_title').addClass('title-bounce');
+            //         $('#testimony_subt').addClass('testimonies-sub');
+            //         $(".m-2:eq(0)").addClass('rotate-skew');
+            //         $(".m-2:eq(1)").addClass('rotate-skew-right');
+            //         $(".m-2:eq(2)").addClass('rotate-skew-left-outer');
+            //         $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
+            //         $(".m-2:eq(4)").addClass('rotate-scale-last');
+            //     }
+            // }, false);
+            // new suggested aos
+            window.iFrameResizer = {
+                targetOrigin: '*',
+                onMessage: function(message) 
+                {
+                    var messageData = JSON.parse(message);                           
+                    //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
+                    //console.log(message);
+                    if(messageData["verticalDisplayRatio"]>0.5){
+                        $('#testimony_title').addClass('title-bounce');
+                        $('#testimony_subt').addClass('testimonies-sub');
+                        $(".m-2:eq(0)").addClass('rotate-skew');
+                        $(".m-2:eq(1)").addClass('rotate-skew-right');
+                        $(".m-2:eq(2)").addClass('rotate-skew-left-outer');
+                        $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
+                        $(".m-2:eq(4)").addClass('rotate-scale-last');     
+                    }
+                    // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
+                    //     $('#testimony_title').removeClass('title-bounce');
+                    //     $('#testimony_subt').removeClass('testimonies-sub');
+                    //     $(".m-2:eq(0)").removeClass('rotate-skew');
+                    //     $(".m-2:eq(1)").removeClass('rotate-skew-right');
+                    //     $(".m-2:eq(2)").removeClass('rotate-skew-left-outer');
+                    //     $(".m-2:eq(3)").removeClass('rotate-skew-right-outer');
+                    //     $(".m-2:eq(4)").removeClass('rotate-scale-last'); 
+                    // }
+                },        
+            } 
         });
     </script>
 

@@ -11,20 +11,23 @@
     <!-- End loading animation -->
     <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&display=swap" rel="stylesheet">
-    <style>
-        iframe {
-            width: 100%;
-            border: 0;
-            margin: 0;
-            padding: 0;
-            display: block;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+
+    <!-- temp removed for suggested aos implementation
+        <style>
+            iframe {
+                width: 100%;
+                border: 0;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style> 
+    -->
 </head>
 
 <body>
@@ -218,12 +221,41 @@
         </nav>
     </div>
 
+    <!-- temp removed for suggested aos implementation
     <iframe src="./intro/main.html" id="iframe1" name="iframe1"></iframe>
     <iframe src="./steps/main.html" id="iframe2" name="iframe2"></iframe>
     <iframe src="./founders/main.html" id="iframe3" name="iframe3"></iframe>
     <iframe src="./testimonies/main.html" id="iframe4" name="iframe4"></iframe>
     <iframe src="./purchase/main.html" id="iframe5" name="iframe5"></iframe>
-    <iframe src="./footer/main.html" id="iframe6" name="iframe6"></iframe>
+    <iframe src="./footer/main.html" id="iframe6" name="iframe6"></iframe> 
+    -->
+
+    <!-- new frames and style as from aos suggested implementation -->
+
+    <iframe id="iframe1" src="./intro/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+    <iframe id="iframe2" src="./steps/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+    <iframe id="iframe3" src="./founders/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+    <iframe id="iframe4" src="./testimonies/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+    <iframe id="iframe5" src="./purchase/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+    <iframe id="iframe6" src="./footer/main.html" scrolling="no" style="overflow: hidden;"></iframe>
+
+    <style>
+        iframe {
+            width: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            float: left;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <!-- end of aos additions -->
 
     <a href="#top" class="btn btn-primary rounded-circle btn-back-to-top" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
         <img src="assets/icons/interface/icon-arrow-up.svg" alt="Icon" class="icon bg-white" data-inject-svg>
@@ -240,10 +272,10 @@
     </script>
 
     <script type="text/javascript">
+    /* //aos init implementation
         $(document).ready(function() {
             $('iframe').iFrameResize();
-        });
-
+        });   
         var messageFrame = function(id){
             if (isOnScreen($('#'+id))) {
                 const frame = window.frames[id].postMessage({
@@ -251,7 +283,6 @@
                 });
             }
         }
-
         $(window).on('scroll', function() {
             messageFrame("iframe1");
             messageFrame("iframe2");
@@ -260,6 +291,113 @@
             messageFrame("iframe5");
             messageFrame("iframe6");
         });
+    */
+
+    // aos client suggested implementation 
+
+    
+    var messages = {};
+
+    var iframeResize = iFrameResize({
+        log: false,
+        enableInPageLinks: true,
+        checkOrigin: false,            
+        onResized: function(messageData) {
+            console.log("resized");
+            messages[messageData.iframe.id] = messageData;            
+        },
+
+        // When child iframe calls parent
+        messageCallback: function(messageData){                
+            console.log(messageDate.iframe.id);
+            console.log(messageDate.message);
+        }        
+    })
+
+    //
+    // Event listeners
+    //
+    $(window).on("scroll", function() {              
+        //console.log("scroll");
+
+        // For all iframes, compute percentage and communicate
+        Object.keys(messages).forEach(function(key) {
+
+            message = messages[key];
+
+            $iframe = $("#" + message.iframe.id);
+            id = $iframe.attr("id");
+
+            // iframe
+            iframeHeight = parseFloat(message.height);
+            iframeTop = parseFloat($iframe.offset().top);
+            iframeBottom = parseFloat(iframeTop) + parseFloat(iframeHeight);
+
+            // Viewport
+            viewHeight = parseFloat($(window).innerHeight());
+            viewTop = parseFloat($(window).scrollTop());
+            viewBottom = parseFloat(viewHeight + $(window).scrollTop());
+
+
+
+            /* 
+            * Scroll ratio
+            */
+
+            // What ratio of the scroll to the top of the iframe is
+            scrollRatio = (viewBottom - iframeTop) / iframeHeight;
+
+
+
+            /* 
+            * Vertical display ratio
+            */
+
+            // Overlap of viewport against iframe. WARNING: Does not mention if overlap is at bottom or top
+            verticalDisplayRatio = 0;
+
+            // Viewport is above or at the iframe
+            if( viewTop <= iframeTop && viewBottom <= iframeBottom){
+                numerator = viewBottom - iframeTop;
+                verticalDisplayRatio = numerator / iframeHeight;                
+
+                // Iframe encompassses the viewport
+            }else if( viewTop > iframeTop && viewBottom < iframeBottom ){
+                numerator = viewHeight
+                verticalDisplayRatio = numerator / iframeHeight;
+
+                // Viewport is below the iframe
+            } else if( viewBottom > iframeBottom ){
+                numerator = iframeBottom - viewTop;
+                verticalDisplayRatio = numerator / iframeHeight;
+            }
+
+            // Adjust, coverage should never be less than 0 or greater than 1
+            if( verticalDisplayRatio < 0){
+                verticalDisplayRatio = 0;
+            }else if( verticalDisplayRatio > 1){
+                verticalDisplayRatio = 1;
+            }
+
+            // For testing
+            // var print = true;
+            // if(print && id == 'iframe6' ){
+            //     console.log("id:" + id);
+            //     console.log("scrollRatio: " + scrollRatio);
+            //     console.log("verticalDisplayRatio: " + verticalDisplayRatio);
+            // }
+
+            // Create jsonMessage with properties(messages must be passed in json format)
+            jsonMessage = 
+                '{"scrollRatio":' + scrollRatio + 
+                ', "verticalDisplayRatio":' + verticalDisplayRatio + 
+                ',"id":"' + $iframe.attr("id") + '"' +"}";
+
+            // Send this data to this iframe
+            message.iframe.iFrameResizer.sendMessage( jsonMessage, []);            
+        });
+
+    });
     </script>
 </body>
 
