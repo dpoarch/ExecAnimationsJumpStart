@@ -16,6 +16,9 @@
 .animate-steps-scale {
     @include animation(fadeInScale cubic-bezier(0.550, 0.085, 0.680, 0.530) both);
 }
+.animate-steps-hide{
+    opacity: 0 !important;
+}
 
 
 @include animate-delays(animate-steps, 1, 7, 1.5);

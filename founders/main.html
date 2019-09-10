@@ -148,7 +148,7 @@
                     var messageData = JSON.parse(message);                           
                     //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
                     //console.log(message);
-                    if(messageData["verticalDisplayRatio"]>0.5){
+                    if(messageData["verticalDisplayRatio"]>0){
                         $('#founders_title').addClass('title-bounce');
                         $('#founders_subt').addClass('founders-lead');
                         $('#founders-card-1, #founders-card-3').addClass('animate-founder-card-slideDown');

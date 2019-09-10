@@ -133,7 +133,7 @@
                     var messageData = JSON.parse(message);                           
                     //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
                     //console.log(message);
-                    if(messageData["verticalDisplayRatio"]>0.5){
+                    if(messageData["verticalDisplayRatio"]>0){
                         $('#testimony_title').addClass('title-bounce');
                         $('#testimony_subt').addClass('testimonies-sub');
                         $(".m-2:eq(0)").addClass('rotate-skew');
