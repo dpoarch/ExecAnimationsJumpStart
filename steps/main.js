@@ -91,7 +91,7 @@ window.addEventListener("load", function() {
           //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
           //console.log(message);
           if(messageData["verticalDisplayRatio"]>0){
-            $('.animate-steps-hide').removeClass('animate-steps-hide');
+            //$('.animate-steps-hide').removeClass('animate-steps-hide');
             $('#animate-steps-fade-right-1').addClass('animate-steps-fade-right');
             $('#animate-steps-fade-right-2').addClass('animate-steps-fade-right');
             $('#animate-steps-fade-right-3').addClass('animate-steps-fade-right');

@@ -21,4 +21,5 @@
 }
 
 
-@include animate-delays(animate-steps, 1, 7, 1.5);
+@include animate-delays(animate-steps, 0, 2, 1.5);
+@include animate-delays(animate-steps, 2, 7, 1.5, 1.5, 2);
