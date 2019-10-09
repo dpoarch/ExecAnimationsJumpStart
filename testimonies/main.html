@@ -15,12 +15,12 @@
 </head>
 
 <body>
-    <section class="bg-primary text-white dy_background">
+    <section class="bg-primary text-white dy_tone2">
         <div class="container">
             <div class="row section-title justify-content-center text-center">
                 <div class="col-md-9 col-lg-8 col-xl-7">
-                    <h3 class="display-4 dy_text" id="testimony_title">Customers are lovin’ it</h3>
-                    <div class="lead 2 dy_text" id="testimony_subt">We just recently launched but our application already got a warm welcome to our customers so far. See some of their reactions below.
+                    <h3 class="display-4 dy_background-text-1" id="testimony_title">Customers are lovin’ it</h3>
+                    <div class="lead 2 dy_background-text-1" id="testimony_subt">We just recently launched but our application already got a warm welcome to our customers so far. See some of their reactions below.
                     </div>
                 </div>
             </div>
@@ -29,31 +29,31 @@
                     <div class="m-2 dy_tone1" id="testimony_box_1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-3.jpg" alt="Brandon Pliskin avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
-                            <div class="text-dark mb-0">&ldquo;Porting in to Jumpstart is a breeze.&rdquo;</div>
+                            <div class="text-dark mb-0 dy_text">&ldquo;Porting in to Jumpstart is a breeze.&rdquo;</div>
                         </div>
                     </div>
                     <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/female-4.jpg" alt="Ashley Mance avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
-                            <div class="text-dark mb-0">&ldquo;Jumpstart is a dream come true.&rdquo;</div>
+                            <div class="text-dark mb-0 dy_text">&ldquo;Jumpstart is a dream come true.&rdquo;</div>
                         </div>
                     </div>
                     <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-4.jpg" alt="Mike Vandels avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
-                            <div class="text-dark mb-0">&ldquo;This company always turns out quality.&rdquo;</div>
+                            <div class="text-dark mb-0 dy_text">&ldquo;This company always turns out quality.&rdquo;</div>
                         </div>
                     </div>
                     <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/male-5.jpg" alt="Deiter Bohn avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
-                            <div class="text-dark mb-0">&ldquo;Jumpstart is, well...It's pretty great.&rdquo;</div>
+                            <div class="text-dark mb-0 dy_text">&ldquo;Jumpstart is, well...It's pretty great.&rdquo;</div>
                         </div>
                     </div>
                     <div class="m-2 dy_tone1">
                         <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
                             <img src="../assets/avatars/female-5.jpg" alt="Shelley Canning avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
-                            <div class="text-dark mb-0">&ldquo;Put your money into this company now.&rdquo;</div>
+                            <div class="text-dark mb-0 dy_text">&ldquo;Put your money into this company now.&rdquo;</div>
                         </div>
                     </div>
                 </div>
@@ -154,5 +154,33 @@
     </script>
 
 </body>
+<style>
 
+        /* Palette colors */
+
+        .dy_background{ color: #fff !important; }
+        .dy_text{ color: #2C3038 !important; } /* header texts */
+        .dy_background-text-7{ color: #555A64 !important; } /* section sub texts */
+        .dy_background-text-3{ color: rgba(255, 255, 255, 0.5) !important; } /* footer sub texts */
+        .dy_background-text-2{ color: rgba(255, 255, 255, 0.7) !important; } /* footer sub texts */
+        .dy_background-text-1{ color: #fff !important; } /* footer text */
+        .dy_tone1{ background-color: #F7F9FC !important; } /* steps module background */
+        .dy_tone2{ background-color: #2568EF !important; } /* testimonies module background */
+        .dy_tone3{ background-color: #051B35 !important; } /* footer module background */
+        .dy_tone4{ background-color: #28a745 !important; } /* steps module circle bullets fill */
+
+        /* default call to action color, can be button/text */
+        .dy_accent1{ 
+            color: #fff !important; 
+            background-color: #2568EF !important; 
+            border-color: #2568EF !important; 
+        } 
+        .dy_accent2{ 
+            color: #2568EF !important; 
+            background-color: transparent !important; 
+            border: 2px solid transparent !important; 
+        }
+        
+</style>
+<!--<link href="../css/palettes/light-mode.css" type="text/css" rel="stylesheet" />-->
 </html>
