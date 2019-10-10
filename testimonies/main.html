@@ -26,32 +26,32 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col d-flex flex-wrap justify-content-center">
-                    <div class="m-2 dy_tone1" id="testimony_box_1">
-                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
+                    <div class="m-2" id="testimony_box_1">
+                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white dy_tone1">
                             <img src="../assets/avatars/male-3.jpg" alt="Brandon Pliskin avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0 dy_text">&ldquo;Porting in to Jumpstart is a breeze.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 dy_tone1">
-                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
+                    <div class="m-2">
+                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white dy_tone1">
                             <img src="../assets/avatars/female-4.jpg" alt="Ashley Mance avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0 dy_text">&ldquo;Jumpstart is a dream come true.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 dy_tone1">
-                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
+                    <div class="m-2">
+                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white dy_tone1">
                             <img src="../assets/avatars/male-4.jpg" alt="Mike Vandels avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0 dy_text">&ldquo;This company always turns out quality.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 dy_tone1">
-                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
+                    <div class="m-2">
+                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white dy_tone1">
                             <img src="../assets/avatars/male-5.jpg" alt="Deiter Bohn avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0 dy_text">&ldquo;Jumpstart is, well...It's pretty great.&rdquo;</div>
                         </div>
                     </div>
-                    <div class="m-2 dy_tone1">
-                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white">
+                    <div class="m-2">
+                        <div class="media rounded align-items-center pl-3 pr-3 pr-md-4 py-2 shadow-sm bg-white dy_tone1">
                             <img src="../assets/avatars/female-5.jpg" alt="Shelley Canning avatar image" class="avatar avatar-sm flex-shrink-0 mr-3">
                             <div class="text-dark mb-0 dy_text">&ldquo;Put your money into this company now.&rdquo;</div>
                         </div>
@@ -110,20 +110,6 @@
     <script type="text/javascript">
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
-
-            // old aos
-            // window.addEventListener('message', function(event) {
-            //     if (typeof event.data == 'object' && event.data.visible == true) {
-            //         $('#testimony_title').addClass('title-bounce');
-            //         $('#testimony_subt').addClass('testimonies-sub');
-            //         $(".m-2:eq(0)").addClass('rotate-skew');
-            //         $(".m-2:eq(1)").addClass('rotate-skew-right');
-            //         $(".m-2:eq(2)").addClass('rotate-skew-left-outer');
-            //         $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
-            //         $(".m-2:eq(4)").addClass('rotate-scale-last');
-            //     }
-            // }, false);
-            // new suggested aos
             window.iFrameResizer = {
                 targetOrigin: '*',
                 onMessage: function(message) {
@@ -139,15 +125,6 @@
                         $(".m-2:eq(3)").addClass('rotate-skew-right-outer');
                         $(".m-2:eq(4)").addClass('rotate-scale-last');
                     }
-                    // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
-                    //     $('#testimony_title').removeClass('title-bounce');
-                    //     $('#testimony_subt').removeClass('testimonies-sub');
-                    //     $(".m-2:eq(0)").removeClass('rotate-skew');
-                    //     $(".m-2:eq(1)").removeClass('rotate-skew-right');
-                    //     $(".m-2:eq(2)").removeClass('rotate-skew-left-outer');
-                    //     $(".m-2:eq(3)").removeClass('rotate-skew-right-outer');
-                    //     $(".m-2:eq(4)").removeClass('rotate-scale-last'); 
-                    // }
                 },
             }
         });
@@ -182,5 +159,5 @@
         }
         
 </style>
-<!--<link href="../css/palettes/light-mode.css" type="text/css" rel="stylesheet" />-->
+<link href="../css/palettes/light-mode-green-tone.css" type="text/css" rel="stylesheet" />
 </html>

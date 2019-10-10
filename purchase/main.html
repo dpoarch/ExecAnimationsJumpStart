@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="divider divider-bottom bg-primary-3 mt-5"></div>
+        <div class="divider divider-bottom bg-primary-3 mt-5 dy_tone3"></div>
     </section>
 
     <!-- Required vendor scripts (Do not remove) -->
@@ -83,34 +83,16 @@
         window.addEventListener("load", function() {
             document.querySelector('body').classList.add('loaded');
 
-            // old aos
-            // window.addEventListener('message', function(event) {
-            //     if (typeof event.data == 'object' && event.data.visible == true) {
-            //         $('#animate-purchase-text-focus').addClass('animate-purchase-text-focus');
-            //         $('#animate-purchase-fade-top-1').addClass('animate-purchase-fade-top');
-            //         $('#animate-purchase-fade-top-2').addClass('animate-purchase-fade-top');
-            //     }
-            // }, false);
-
-            // new suggested aos
             window.iFrameResizer = {
                 targetOrigin: '*',
                 onMessage: function(message) 
                 {
-                    var messageData = JSON.parse(message);                           
-                    //$("#display").text("scrollRatio: " + messageData["scrollRatio"] + " verticalDisplayRatio:" + messageData["verticalDisplayRatio"])
-                    //console.log(message);
+                    var messageData = JSON.parse(message); 
                     if(messageData["verticalDisplayRatio"]>0){
                         $('#animate-purchase-text-focus').addClass('animate-purchase-text-focus');
                         $('#animate-purchase-fade-top-1').addClass('animate-purchase-fade-top');
                         $('#animate-purchase-fade-top-2').addClass('animate-purchase-fade-top');    
                     }
-                    // else if (messageData["verticalDisplayRatio"]<0.5||messageData["verticalDisplayRatio"]>1){
-                    //     $('#animate-purchase-text-focus').removeClass('animate-purchase-text-focus');
-                    //     $('#animate-purchase-fade-top-1').removeClass('animate-purchase-fade-top');
-                    //     $('#animate-purchase-fade-top-2').removeClass('animate-purchase-fade-top');  
-
-                    // }
                 },        
             }
         });
@@ -145,5 +127,5 @@
         }
         
 </style>
-<!--<link href="../css/palettes/light-mode.css" type="text/css" rel="stylesheet" />-->
+<link href="../css/palettes/light-mode-green-tone.css" type="text/css" rel="stylesheet" />
 </html>
