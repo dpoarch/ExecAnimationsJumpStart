@@ -271,31 +271,7 @@
         });
     </script>
 
-    <script type="text/javascript">
-    /* //aos init implementation
-        $(document).ready(function() {
-            $('iframe').iFrameResize();
-        });   
-        var messageFrame = function(id){
-            if (isOnScreen($('#'+id))) {
-                const frame = window.frames[id].postMessage({
-                    visible: true
-                });
-            }
-        }
-        $(window).on('scroll', function() {
-            messageFrame("iframe1");
-            messageFrame("iframe2");
-            messageFrame("iframe3");
-            messageFrame("iframe4");
-            messageFrame("iframe5");
-            messageFrame("iframe6");
-        });
-    */
-
-    // aos client suggested implementation 
-
-    
+    <script type="text/javascript">    
     var messages = {};
 
     var iframeResize = iFrameResize({
@@ -314,13 +290,7 @@
         }        
     })
 
-    //
-    // Event listeners
-    //
     $(window).on("scroll", function() {              
-        //console.log("scroll");
-
-        // For all iframes, compute percentage and communicate
         Object.keys(messages).forEach(function(key) {
 
             message = messages[key];
