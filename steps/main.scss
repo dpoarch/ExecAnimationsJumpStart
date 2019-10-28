@@ -20,6 +20,10 @@
     opacity: 0 !important;
 }
 
+.init-hide{
+    display: none;
+    visibility: hidden;
+}
 
 @include animate-delays(animate-steps, 0, 2, 1.5, 1.5, -1);
 @include animate-delays(animate-steps, 2, 7, 1.5, 1.5, 2);

@@ -51,20 +51,40 @@ window.addEventListener("load", function() {
     return str.substring(0, str.length - 2); 
   }
 
-  var bindIdtoAnimateClass = function(name){
-    $('#'+name).addClass(name);
-  }
+  var ids = [
+    '#animate-steps-fade-right-1',
+    '#animate-steps-fade-right-2',
+    '#animate-steps-fade-right-3',
+    '#animate-steps-scale-1',
+    '#animate-steps-scale-2',
+    '#animate-steps-scale-3',
+    '#animate-steps-scale-4',
+    '#animate-steps-scale-5',
+    '#animate-steps-text-focus-1',
+    '#animate-steps-text-focus-2',
+    '#animate-steps-text-focus-3',
+    '#animate-steps-text-focus-4',
+    '#animate-steps-text-focus-5',
+    '#animate-steps-fade-down-1',
+    '#animate-steps-fade-down-2',
+    '#animate-steps-fade-left-1',
+    '#animate-steps-fade-left-2',
+    '#animate-steps-fade-left-3',
+    ".text-wrapper"
+    ];
 
-  var bindIdstoAnimateClass = function(name,i,n){
-    $(listClassIndices('#'+name, i, n)).addClass(name);
-  }
-
+    ids.forEach(_=>{
+      $(_).addClass("init-hide");
+    });
     window.iFrameResizer = {
       targetOrigin: '*',
       onMessage: function(message) 
       {
           var messageData = JSON.parse(message);    
           if(messageData["verticalDisplayRatio"]>0){
+            ids.forEach(_=>{
+              $(_).removeClass("init-hide");
+            });
             $('#animate-steps-fade-right-1').addClass('animate-steps-fade-right');
             $('#animate-steps-fade-right-2').addClass('animate-steps-fade-right');
             $('#animate-steps-fade-right-3').addClass('animate-steps-fade-right');
